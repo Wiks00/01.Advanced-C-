@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Collections;
 using Visitor = FileSystemVisitor.FileSystemVisitor;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace Test
         {
             int counter = 0;
 
-            var visitor = new Visitor(@"D:\test");
+            var visitor = new Visitor(ConfigurationManager.AppSettings["test_FolderPath"]);
 
             visitor.Start += () => Console.WriteLine("Started");
 
